@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+
+   <h1>Home</h1>
+
+   <table class="table table-hover">
+      <thead>
+         <th>Time</th>
+         <th>Open</th>
+         <th>High</th>
+         <th>Low</th>
+         <th>Close</th>
+         <th>Volume</th>
+      </thead>
+      <tbody>
+      {% for tsKey, tsValue in tSeries_1Min.items() %}
+         <tr>
+            <th scope="row">{{tsKey}}</th>
+         {% for innerKey, innerValue in tsValue.items() %}
+            <th>{{innerValue}}</th>
+         {% endfor %}
+         <tr>
+      {% endfor %}
+      </tbody>
+   </table>
+
+   {% for mKey, mValue in metaData.items() %}
+      <p>{{mKey}}: {{mValue}}</p>
+   {% endfor %}
+   
+</div>
+
+{% endblock %}
