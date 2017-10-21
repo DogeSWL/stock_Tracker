@@ -1,35 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Stock Tracker</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
 
 <div class="container">
+   <canvas id="myChart" width='1000' height="400"></canvas>
+   <script type="text/javascript">
+   var legend = '{{legend}}';
+   var labels = [{% for item in labels %}
+                  "{{item}}",
+                 {% endfor %}];
+   var values = [{% for item in values %}
+                  {{item}},
+                 {% endfor %}];
+</script>
+   <script type="text/javascript" src="static/lineGraph.js"></script>
+   <p>{{chartXY}}</p>
 
-   <h1>Home</h1>
-
-   <table class="table table-hover">
-      <thead>
-         <th>Time</th>
-         <th>Open</th>
-         <th>High</th>
-         <th>Low</th>
-         <th>Close</th>
-         <th>Volume</th>
-      </thead>
-      <tbody>
-      {% for tsKey, tsValue in tSeries_1Min.items() %}
-         <tr>
-            <th scope="row">{{tsKey}}</th>
-         {% for innerKey, innerValue in tsValue.items() %}
-            <th>{{innerValue}}</th>
-         {% endfor %}
-         <tr>
-      {% endfor %}
-      </tbody>
-   </table>
-
-   {% for mKey, mValue in metaData.items() %}
-      <p>{{mKey}}: {{mValue}}</p>
-   {% endfor %}
-   
 </div>
 
 {% endblock %}
