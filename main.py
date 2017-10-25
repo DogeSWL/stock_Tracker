@@ -9,9 +9,9 @@ keyAPI = api_key.a
 
 @app.route("/index")
 def home():
-    url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=15min&apikey=" + keyAPI
+    url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=30min&apikey=" + keyAPI
 
-    chartXY = getXY("Time Series (15min)", url)
+    chartXY = getXY("Time Series (30min)", url)
 
     legend = "Price"
     times = chartXY[0]

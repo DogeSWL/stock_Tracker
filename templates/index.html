@@ -9,18 +9,30 @@
 </nav>
 
 <div class="container">
-   <canvas id="myChart" width='1000' height="400"></canvas>
+   <div class="ct-chart ct-golden-section"></div>
    <script type="text/javascript">
-   var legend = '{{legend}}';
-   var labels = [{% for item in labels %}
-                  "{{item}}",
-                 {% endfor %}];
-   var values = [{% for item in values %}
-                  {{item}},
-                 {% endfor %}];
-</script>
+      var labels = [{% for item in labels %}
+                     "{{item}}",
+                    {% endfor %}];
+      var values = [{% for item in values %}
+                     {{item}},
+                    {% endfor %}];
+   </script>
+   <script type="text/javascript" src="static/chartistJS_test.js"></script>
+
+   <!-- ChartJS -->
+   <!-- <canvas id="myChart" width='1000' height="400"></canvas>
+   <script type="text/javascript">
+      var legend = '{{legend}}';
+      var labels = [{% for item in labels %}
+                     "{{item}}",
+                    {% endfor %}];
+      var values = [{% for item in values %}
+                     {{item}},
+                    {% endfor %}];
+   </script>
    <script type="text/javascript" src="static/lineGraph.js"></script>
-   <p>{{chartXY}}</p>
+   <p>{{chartXY}}</p> -->
 
 </div>
 
